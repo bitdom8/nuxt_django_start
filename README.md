@@ -220,7 +220,8 @@ Set-ExecutionPolicy RemoteSigned
 
 OLS
 bitdom8
-KOKbok22-* * 3 + 99
+
+bok22-* * 3 + 99
 
 YARN INSTALL WIN
 npm install --global yarn
@@ -334,3 +335,164 @@ sudo apt install python3.9
 sudo apt install python-is-python3
 sudo apt install python-dev-is-python3
 sudo apt-get install openlitespeed
+
+
+
+
+
+
+
+
+
+
+
+INSTALL OLS
+sudo add-apt-repository 'deb http://rpms.litespeedtech.com/debian/ bionic main'
+wget -O - http://rpms.litespeedtech.com/debian/enable_lst_debian_repo.sh | bash
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 011AA62DEDA1F085
+apt-get install openlitespeed lsphp73
+ln -sf /usr/local/lsws/lsphp73/bin/lsphp /usr/local/lsws/fcgi-bin/lsphp5
+/usr/local/lsws/bin/lswsctrl start
+
+wget -O - http://rpms.litespeedtech.com/debian/enable_lst_debian_repo.sh | sudo bash
+sudo apt update
+sudo apt-get install openlitespeed
+
+wget https://openlitespeed.org/packages/openlitespeed-1.7.13.tgz
+
+echo deb http://archive.ubuntu.com/ubuntu/ bionic universe | sudo tee /etc/apt/sources.list.d/bionic.list
+sudo apt-get update
+sudo apt-get install libzip4
+
+LSWSGI
+curl -O http://www.litespeedtech.com/packages/lsapi/wsgi-lsapi-1.6.tgz
+tar xf wsgi-lsapi-1.6.tgz
+cd wsgi-lsapi-1.6
+python3 ./configure.py
+
+
+apt install build-essential
+apt-get install python3-dev
+make
+cp lswsgi /usr/local/lsws/fcgi-bin/
+
+
+
+IP:7080 ' 
+LİSTENERS > 80 and save the changes
+
+FIREWALL
+sudo apt install ufw
+
+SHOW OPENPORTS
+sudo ss -ltn
+
+OPEN FIREWALL
+sudo ufw allow 7080
+sudo ufw allow 8088
+sudo ufw allow 3001
+
+INSTALL FIX and UPDATE
+sudo apt-get update --fix-missing
+sudo dpkg --configure -a
+sudo apt-get install -f
+sudo apt-get update
+
+
+
+CURL WIN BELOW!
+remove-item alias:\curl
+curl -X POST http://localhost:8080/book -d '{\"name\": \"Good Book\", \"author\": \"gGeat Author\", \"num_pages\": 500, \"tags\": [\"jh\"]}' -H "content-type: application/json"
+
+remove-item alias:\curl
+curl -X POST http://localhost:8000/api/login -d '{\"username\": \"bitdom8\", \"password\": \"xxxxx\"}' -H "content-type: application/json"
+
+xxxxx means your password
+
+remove-item alias:\curl
+curl -X POST http://localhost:8000/api/todos -d '{\"title\": \"Good Book\"}' -H "content-type: application/json"
+
+curl -X DELETE http://localhost:8080/book/6116ebf37af157fba6e99279
+
+curl --location --request POST 'http://localhost:8080/upload' \
+--header 'Content-Type: multipart/form-data' \
+--form 'file=D:/Ev/1.jpg'
+
+'D:/Ev/1.jpg'
+
+
+
+
+
+
+LIBZIP
+echo deb http://archive.ubuntu.com/ubuntu/ bionic universe | sudo tee /etc/apt/sources.list.d/bionic.list
+sudo apt-get update
+sudo apt-get install libzip4
+
+
+
+
+
+LINUX
+sudo su
+cd /usr/local/lsws/serverclient/client
+
+cd CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\LocalState\rootfs\usr\local\lsws
+
+
+CREATE FILE WITH PERMISSION 
+touch app.js
+
+CREATE FOLDER WITH PERMISSION
+mkdir /Example/newdir
+mkdir /tmp
+
+OPEN A FILE
+vi app.js
+
+CLEAN
+pnpm cache clean
+yarn cache clean
+npm cache clean
+OR
+pnpm cache clean --force
+yarn cache clean --force
+npm cache clean --force
+
+python3 -m pip install --upgrade pip
+python -m pip install --upgrade pip
+pip install -U -r requirements.txt
+
+
+
+CENTOS
+firewall-cmd --permanent --add-port=5432/tcp
+firewall-cmd --zone=public --add-port=5432/tcp --permanent
+
+LINUX LOCATION
+%userprofile%\AppData\Local\Packages
+SEARH FOR
+rootfs
+
+
+
+
+vi /etc/ssh/sshd_config
+
+LIPZIP PROBLEM
+echo deb http://archive.ubuntu.com/ubuntu/ bionic universe | sudo tee /etc/apt/sources.list.d/bionic.list
+sudo apt-get update
+sudo apt-get install libzip4
+
+
+
+RESTART PYTHON
+killall lswsgi
+
+
+
+nodemon pnpm run preview --port 3000 --host 91.226.221.182
+nodemon ./node_modules/nuxt/bin/nuxt.js preview
+nodemon ./build/index.js pnpm preview
+nodemon ./.svelte-kit/build/app.js pnpm preview
