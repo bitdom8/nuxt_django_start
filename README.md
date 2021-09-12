@@ -6,6 +6,49 @@ I dont use nuxtjs nor django anymore because they are slow. I use sveltejs and g
 cd /usr/local/lsws/server
 
 
+INSTALL PYTHON_MYSQL UBUNTU
+sudo apt-get install libmysqlclient-dev python-dev mysqlclient
+pip install django-mysql
+sudo apt-get install default-libmysqlclient-dev
+
+ADD PACKAGES PYTHON
+python3 -m pip install django django-cors-headers djangorestframework drfpasswordless
+
+PIP
+pip install django-filter dj-rest-auth django-allauth django-rest-auth[with_social]
+pip install python-gettext
+pip install djangorestframework-simplejwt whitenoise django-mysql jsonfield
+pip install psycopg2-binary mysqlclient
+pip uninstall django-filter
+y
+apt-get update
+sudo apt-get install libpq-dev python3-dev
+pip install psycopg2
+
+
+
+PIP LINUX or WIN
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+python3 get-pip.py
+py get-pip.py
+pip install --upgrade pip utils
+
+PIP
+sudo apt install python3-pip
+sudo pip3 install --upgrade pip
+pip install django
+pip install djangorestframework
+pip install djongo
+python3 manage.py runserver
+cd /usr/local/lsws/server
+python3 manage.py runserver
+
+DJONGO
+pip install --upgrade djongo
+DJONGO NEEDS sqlparse==0.2.4
+
+
+
 RESTART PYTHON
 killall lswsgi
 
@@ -154,3 +197,126 @@ Dev Dependencies:
 yarn add --dev "@nuxt/types" 
 yarn add --dev "nodemon"
 pnpm add -D nodemon
+
+
+
+
+
+
+
+
+
+
+
+
+DISABLE ROOT
+ADD NEWUSER BEFORE ROOT
+adduser bitdom8here
+echo 'bitdom8here ALL=(ALL) ALL' >> /etc/sudoers
+ssh bitdom8here@91.226.221.182 -p 22
+
+running scripts is disabled
+Set-ExecutionPolicy RemoteSigned
+
+OLS
+bitdom8
+KOKbok22-* * 3 + 99
+
+YARN INSTALL WIN
+npm install --global yarn
+yarn --version
+
+npm install --global pnpm
+
+NODEJS
+pnpm add -g pnpm
+
+pnpm run generate:manifest
+pnpm add sharp
+
+npm init svelte@next client
+cd client
+npm install
+npm run dev
+
+NEW YARN
+npm init svelte@next client
+cd client
+pnpm install
+pnpm build
+pnpm preview
+
+"preview": "svelte-kit preview --host=91.226.221.182 --port=3000",
+
+cd /usr/local/lsws/Example/server/
+cd /usr/local/lsws/Example/client/
+cd /usr/local/lsws/Example/
+rm -rf client
+trash-empty
+
+
+# ssh root@91.226.221.182 -p 22
+sudo ufw allow 2234/tcp
+ssh root@91.226.221.182 -p 2234
+
+/usr/local/lsws/bin/lswsctrl stop
+
+cd /usr/local/lsws/Example/client
+kill -9 $(pgrep -f 'lsnode')
+killall node
+pm2 kill
+pm2 save
+
+/usr/local/lsws/bin/lswsctrl start
+cd /usr/local/lsws/Example/client
+
+
+
+cd /usr/local/lsws/Example2/client
+/usr/local/lsws/bin/lswsctrl start
+pm2 start
+a
+
+pm2 ls
+
+
+THEN OPEN su root
+su -
+
+Change SSH Port (22 becomes 9876)
+su -
+vi /etc/ssh/sshd_config
+
+Add ssh key (RUN on WINDOWS)
+ssh-keygen -t ed25519 -C "xxxx"
+
+xxx means your password
+
+Server Instance:7080  8088
+ssh root@91.226.221.182
+
+ssh-keygen -R 192.168.1.102
+ssh sk@91.226.221.182
+
+CHANGE VPS PASSWORD:
+passwd
+
+PERMISSION
+sudo su
+
+LINUX NODEJS INSTALL
+curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+apt update
+
+SSL  http to https 
+sudo apt install ufw
+sudo ufw allow 3306
+
+sudo reboot
+
+sudo ufw allow 22,53,80,
+sudo ufw allow 443,7080,8088/tcp
+sudo ufw default reject
+sudo ufw enable
