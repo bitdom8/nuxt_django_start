@@ -320,3 +320,17 @@ sudo ufw allow 22,53,80,
 sudo ufw allow 443,7080,8088/tcp
 sudo ufw default reject
 sudo ufw enable
+
+
+
+
+PYTHON UPGRADE
+sudo apt update
+sudo apt install software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+(then enter)
+sudo apt update
+sudo apt install python3.9
+sudo apt install python-is-python3
+sudo apt install python-dev-is-python3
+sudo apt-get install openlitespeed
