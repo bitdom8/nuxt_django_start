@@ -487,6 +487,61 @@ sudo apt-get install libzip4
 
 
 
+
+
+
+
+
+
+
+  // console.log("HEY PROC HERE", process.env.NODE_ENV, 828282, "OS HERE")
+  
+  
+  // if (process.env.NODE_ENV == "development") {
+  //   config.whichsite = 'http://localhost',
+  //     config.port = '3000',
+  //     config.baseURL = 'http://localhost:8000/be'
+  //     //in the VPS, add /be to PATH
+  //   // config.baseURL = 'https://www.aldolap.com/be'
+  // }
+  
+  // if (process.env.NODE_ENV == "production") {
+
+  //     if (config.whichsite == 'http://localhost') {
+  //       config.port = '3000'
+  //       config.baseURL = 'http://localhost:8000/be'
+  //     }
+
+  //     else if (config.whichsite == 'https://aldolap.com') {
+  //       config.port = '3000'
+  //       config.baseURL = 'https://aldolap.com/be'
+  //     }
+    
+  //     else if (config.whichsite == 'https://bitfinicon.com') {
+  //       config.port = '3001',
+  //         config.baseURL = 'https://bitfinicon.com/be'
+  //     }
+
+  
+
+
+  // }
+  
+
+
+//NOT WORKS, was working with NUXT
+      // if (process.env.OS == "Windows_NT") {
+    //   config.host = 'localhost'
+    //   config.baseURL = 'http://localhost:8000/be'
+    // }
+  
+    // else if (process.env.OS != "Windows_NT") {
+    //   config.host = '91.226.221.182'
+    //   config.baseURL = 'https://www.aldolap.com/be'
+    // }
+
+
+
 RESTART PYTHON
 killall lswsgi
 
