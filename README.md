@@ -378,6 +378,240 @@ cp lswsgi /usr/local/lsws/fcgi-bin/
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+DATABASES. I prefer mongodb
+
+
+
+NOTE: DON't REVEAL YOUR PASS ANYWHERE
+
+INSTALL POSTGRESQL  (CENTOS bookmark'ta açıklamalı)
+/var/lib/pgsql   'ya şu iki dosyayı at
+pg_hba 
+postgresql.config
+
+INSTALL POSTGRESQL  (UBUNTU bookmark'ta açıklamalı)
+/etc/postgresql/12/main   'ya şu iki dosyayı at
+pg_hba 
+postgresql.config
+sudo apt update
+sudo apt install postgresql postgresql-contrib
+sudo -i -u postgres
+psql
+sudo -u postgres psql
+
+netstat -nlp | grep 5432
+
+sudo systemctl start postgresq
+
+sudo -u postgres createuser --interactive
+
+sudo -u postgres createdb bitdom8
+
+sudo -u bitdom8 psql
+
+sudo apt-get -y upgrade
+
+sudo -u postgres psql -c "SELECT version()"
+
+\l
+
+sudo -i -u postgres
+psql
+
+psql -c "ALTER USER postgres PASSWORD 'YOURpasswordhere';"
+
+PASSWORD
+sudo passwd postgres
+
+sudo chown -R postgres:postgres /var/lib/postgresql/10/ && sudo chmod -R u=rwX,go= /var/lib/postgresql/10/
+
+sudo systemctl start postgresql@12-main
+
+POSTGRESQ CREATE DATABASE
+sudo -u postgres psql
+CREATE DATABASE databasehereplease;
+CREATE USER postgres WITH ENCRYPTED PASSWORD 'YOURpasswordhere';
+ALTER ROLE postgres SET client_encoding TO 'utf8';
+ALTER ROLE postgres SET default_transaction_isolation TO 'read committed';
+ALTER ROLE postgres SET timezone TO 'UTC';
+GRANT ALL PRIVILEGES ON DATABASE databasehereplease TO postgres;
+\q
+
+What is the hostname address of my default database?
+service postgresql status
+
+CONNECTION ERROR
+sudo service postgresql restart
+
+DELETE DATABASE
+sudo service postgresql restart
+sudo -u postgres psql
+DROP DATABASE databasehereplease;
+
+sudo apt install ufw
+sudo ufw allow 5432
+sudo service postgresql restart
+---------
+
+MYSQL
+sudo apt install mysql-server
+Y
+sudo mysql_secure_installation
+Y
+sudo mysql
+Y
+
+CREATE USER 'bitdom8'@'91.226.221.182' IDENTIFIED BY 'YOURpasswordhere';
+GRANT ALL PRIVILEGES ON *.* TO 'bitdom8'@'91.226.221.182' WITH GRANT OPTION;
+CREATE USER 'bitdom8'@'%' IDENTIFIED BY 'YOURpasswordhere';
+GRANT ALL PRIVILEGES ON *.* TO 'bitdom8'@'%' WITH GRANT OPTION;
+create database my_db;
+exit
+
+
+vi /etc/mysql/mysql.conf.d/mysqld.cnf
+bind address = 0.0.0.0
+sudo systemctl start mysql.service
+sudo service mysql restart
+
+mysql -u bitdom8 -p -h 91.226.221.182 -P 3306
+
+sudo apt install ufw
+sudo ufw allow 3306
+
+mysql -u bitdom8 -p
+sudo mysqladmin -p -u bitdom8 version
+
+mysql -h 91.226.221.182 -u bitdom8 -p
+mysql -u test_user -h 91.226.221.182 -pYOURpasshere
+
+mysql -u bitdom8 -p -h 91.226.221.182  
+
+netstat -lnp | grep mysql
+
+cd /usr/local/lsws/Example/server
+
+
+
+
+----------
+COCHROACH
+pip install psycopg2
+
+python manage.py createsuperuser --email bitdom8@gmail.com --username bitdom8
+
+python manage.py createsuperuser --email bitdom8@gmail.com --username bitdom9
+
+KILL process
+pkill -9 cockroach
+
+sudo ufw allow 3131
+Node2
+sudo ufw allow 3132
+Node3
+sudo ufw allow 3133
+sudo ufw allow 26257  
+sudo ufw allow 26258
+sudo ufw allow 26259
+sudo ufw allow 34749
+sudo ufw allow 54717
+sudo ufw allow 54718
+sudo ufw allow 54719
+
+cockroach quit --insecure --host=91.226.221.182:54717
+cockroach init --insecure --host=91.226.221.182:54718
+
+
+cockroach cert create-node \
+91.226.221.182 \
+$(hostname) \
+--certs-dir=certs \
+--ca-key=my-safe-directory/ca.key
+
+cockroach sql --certs-dir=certs --host=127.0.0.1:54717 --background
+cockroach sql --insecure --host=91.226.221.182:54717 --background
+
+BACKGROUND connect: connection refused
+
+cockroach start \
+--certs-dir=certs \
+--store=node1 \
+--listen-addr=91.226.221.182:54717 \
+--http-addr=91.226.221.182:3131 \
+--join=91.226.221.182:54717,91.226.221.182:54718,91.226.221.182:54719 \
+--background
+
+cockroach start \
+--insecure \
+--certs-dir=certs \
+--store=node1 \
+--listen-addr=localhost:54717 \
+--http-addr=localhost:3131 \
+--join=localhost:54717,localhost:54718,localhost:54719 \
+--background
+
+cockroach start \
+--certs-dir=certs \
+--store=node2 \
+--listen-addr=localhost:54718 \
+--http-addr=localhost:3132 \
+--join=localhost:54717,localhost:54718,localhost:54719 \
+--background
+
+cockroach start \
+--certs-dir=certs \
+--store=node3 \
+--listen-addr=localhost:54719 \
+--http-addr=localhost:3133 \
+--join=localhost:54717,localhost:54718,localhost:54719 \
+--background
+
+
+grep 'node starting' node1/logs/cockroach.log -A 11
+grep 'node starting' node2/logs/cockroach.log -A 11
+
+cockroach init --certs-dir=certs --host=localhost:54717
+
+SSL enabled?? Enable it
+sslcert=certs%2Froot.crt&sslkey=certs%2Froot.key
+
+sslrootcert=path/to/ca.crt
+
+cockroach sql --certs-dir=certs --host=0.0.0.0:54717
+
+****** is your pass
+CREATE USER bitdom8123 WITH PASSWORD '*********';
+
+cockroach workload init movr 'postgresql://root@localhost:54717?sslcert=certs%2Fclient.root.crt&sslkey=certs%2Fclient.root.key&sslmode=verify-full&sslrootcert=certs%2Fca.crt'
+
+cockroach sql --certs-dir=certs --host=localhost:54717
+
+GRANT admin TO bitdom8123;
+
+cockroach quit --certs-dir=certs --host=localhost:54717
+
+cockroach quit --certs-dir=certs --host=localhost:54718
+
+cockroach quit --certs-dir=certs --host=localhost:54719
+
+----------
+
+
+
+
+
 IP:7080 ' 
 LİSTENERS > 80 and save the changes
 
