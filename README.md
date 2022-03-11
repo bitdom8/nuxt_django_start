@@ -751,9 +751,9 @@ sudo apt-get install libzip4
   //       config.baseURL = 'https://aldolap.com/be'
   //     }
     
-  //     else if (config.whichsite == 'https://bitfinicon.com') {
+  //     else if (config.whichsite == 'https://asddf.com') {
   //       config.port = '3001',
-  //         config.baseURL = 'https://bitfinicon.com/be'
+  //         config.baseURL = 'https://asddf.com/be'
   //     }
 
   
